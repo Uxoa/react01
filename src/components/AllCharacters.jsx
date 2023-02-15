@@ -1,6 +1,5 @@
-
-import './App.css';
 import React,{useState, useEffect} from 'react'
+import { Link } from 'react-router-dom';
 
 function AllCharacters() {
 
@@ -14,9 +13,21 @@ useEffect(()=>{
 },[])
 
 
-    return (
-        <div>AllCharacters</div>
-    )
-}
+return (
+    <>
+    {characters.map((character)=>{
+
+    return(
+
+            <div key={character.id}>
+                <p>{character.name}</p>
+                <Link to={'/character/${character.id'}> <img src={character.image} alt={character.id}t={character.name}/> </Link>
+            </div>
+
+            )
+        })}
+        </>
+        )
+    }
 
 export default AllCharacters
